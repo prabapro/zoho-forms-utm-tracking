@@ -110,25 +110,25 @@ ZFAdvLead.prototype.zfautm_calcTrafSrc = function () {
 	else if (this.zfautm_gP(url_search, 'gclid')) {
 		u1 = 'Google Ads';
 		u2 = 'cpc';
-		u3 = '(not set)';
-		u4 = '(not set)';
-		u5 = `GCLID: ${this.zfautm_gP(url_search, 'gclid')}`;
+		u3 = '-';
+		u4 = '-';
+		u5 = `ClickID: ${this.zfautm_gP(url_search, 'gclid')}`;
 	}
 	// Facebook Ads
 	else if (this.zfautm_gP(url_search, 'fbclid')) {
 		u1 = 'Facebook';
 		u2 = 'Social';
-		u3 = '(not set)';
-		u4 = '(not set)';
-		u5 = `FBCLID: ${this.zfautm_gP(url_search, 'fbclid')}`;
+		u3 = '-';
+		u4 = '-';
+		u5 = `ClickID: ${this.zfautm_gP(url_search, 'fbclid')}`;
 	}
 	// LinkedIn Ads
 	else if (this.zfautm_gP(url_search, 'li_fat_id')) {
 		u1 = 'Linkedin';
 		u2 = 'Social';
-		u3 = '(not set)';
-		u4 = '(not set)';
-		u5 = `LI_FAT_ID: ${this.zfautm_gP(url_search, 'li_fat_id')}`;
+		u3 = '-';
+		u4 = '-';
+		u5 = `ClickID: ${this.zfautm_gP(url_search, 'li_fat_id')}`;
 	}
 	// Map Params
 	else if (ref) {
