@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Zoho Forms GTm Tracking</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="style.css" />
+		<!-- Google Tag Manager -->
+		<script>
+			(function (w, d, s, l, i) {
+				w[l] = w[l] || [];
+				w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+				var f = d.getElementsByTagName(s)[0],
+					j = d.createElement(s),
+					dl = l != 'dataLayer' ? '&l=' + l : '';
+				j.async = true;
+				j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+				f.parentNode.insertBefore(j, f);
+			})(window, document, 'script', 'dataLayer', 'GTM-5QGCHCD');
+		</script>
+		<!-- End Google Tag Manager -->
+	</head>
+	<body>
+		<h1>Zoho Forms Iframe</h1>
+		<!-- Zoho embed code (JavaScript Version) -->
+		<div id="zf_div_0Q_2imkkvetfz1-k4HrmptntjTJL7OV6NtTYoX-w2hM"></div>
+		<script type="text/javascript">
+			(function () {
+				try {
+					var f = document.createElement('iframe');
+					f.src =
+						'https://zoho-iframe.prabapro.me/prabapro1/form/GTMTest/formperma/0Q_2imkkvetfz1-k4HrmptntjTJL7OV6NtTYoX-w2hM?zf_rszfm=1';
+
+					f.style.border = 'none';
+					f.style.height = '1048px';
+					f.style.width = '100%';
+					f.style.transition = 'all 0.5s ease';
+					var d = document.getElementById(
+						'zf_div_0Q_2imkkvetfz1-k4HrmptntjTJL7OV6NtTYoX-w2hM'
+					);
+					d.appendChild(f);
+					window.addEventListener(
+						'message',
+						function () {
+							var evntData = event.data;
+							if (evntData && evntData.constructor == String) {
+								var zf_ifrm_data = evntData.split('|');
+								if (zf_ifrm_data.length == 2) {
+									var zf_perma = zf_ifrm_data[0];
+									var zf_ifrm_ht_nw = parseInt(zf_ifrm_data[1], 10) + 15 + 'px';
+									var iframe = document
+										.getElementById('zf_div_0Q_2imkkvetfz1-k4HrmptntjTJL7OV6NtTYoX-w2hM')
+										.getElementsByTagName('iframe')[0];
+									if (
+										iframe.src.indexOf('formperma') > 0 &&
+										iframe.src.indexOf(zf_perma) > 0
+									) {
+										var prevIframeHeight = iframe.style.height;
+										if (prevIframeHeight != zf_ifrm_ht_nw) {
+											iframe.style.height = zf_ifrm_ht_nw;
+										}
+									}
+								}
+							}
+							// Place the custom code here
+							// Function to read cookie & send it to iframe via postMessage
+							setTimeout(function () {
+								// Get cookie value & decode
+								const campaignCookie = decodeURIComponent(
+									document.cookie
+										.split('; ')
+										.filter(row => row.startsWith('__gtm_campaign_url'))
+										.map(c => c.split('=')[1])[0]
+								);
+
+								if (campaignCookie !== 'undefined') {
+									// Create URL object using the cookie value
+									var url = new URL(campaignCookie),
+										params = new URLSearchParams(url.search),
+										utmSource = params.get('utm_source'),
+										utmMedium = params.get('utm_medium'),
+										utmCampaign = params.get('utm_campaign'),
+										utmContent = params.get('utm_content'),
+										utmTerm = params.get('utm_term'),
+										gclid = params.get('gclid'),
+										fbclid = params.get('fbclid'),
+										linkedIn = params.get('li_fat_id');
+
+									// var win = f.contentWindow.document;
+
+									// Fill the hidden fields with the required query params
+									// win.querySelector('input[placeholder="source"').value = utmSource;
+									// win.querySelector('input[placeholder="medium"').value = utmMedium;
+									// win.querySelector('input[placeholder="campaign"').value = utmCampaign;
+									// win.querySelector('input[placeholder="content"').value = utmContent;
+									// win.querySelector('input[placeholder="term"').value = utmTerm;
+									// win.querySelector('input[placeholder="fbclid"').value = fbclid;
+									// win.querySelector('input[placeholder="gclid"').value = gclid;
+									// win.querySelector('input[placeholder="linkedIn"').value = linkedIn;
+
+									var ORIGIN = 'https://localhost:5500';
+
+									f.contentWindow.postMessage(
+										f.contentWindow.postMessage(
+											(f.contentWindow.querySelector('input[placeholder="source"').value =
+												'hello')
+										),
+										ORIGIN
+									);
+								}
+							}, 5000);
+						},
+						false
+					);
+				} catch (e) {}
+			})();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Parent Page</title>
+	</head>
+	<body>
+		<div id="testForm"></div>
+		<script type="text/javascript">
+			(function () {
+				try {
+					var f = document.createElement('iframe');
+					f.src = 'https://localhost:5500/iframe.html';
+
+					f.style.border = 'none';
+					f.style.height = '574px';
+					f.style.width = '90%';
+					f.style.transition = 'all 0.5s ease';
+					var d = document.getElementById('testForm');
+					d.appendChild(f);
+					window.addEventListener(
+						'message',
+						function () {
+							var evntData = event.data;
+							if (evntData && evntData.constructor == String) {
+								var zf_ifrm_data = evntData.split('|');
+								if (zf_ifrm_data.length == 2) {
+									var zf_perma = zf_ifrm_data[0];
+									var zf_ifrm_ht_nw = parseInt(zf_ifrm_data[1], 10) + 15 + 'px';
+									var iframe = document
+										.getElementById('testForm')
+										.getElementsByTagName('iframe')[0];
+									if (
+										iframe.src.indexOf('formperma') > 0 &&
+										iframe.src.indexOf(zf_perma) > 0
+									) {
+										var prevIframeHeight = iframe.style.height;
+										if (prevIframeHeight != zf_ifrm_ht_nw) {
+											iframe.style.height = zf_ifrm_ht_nw;
+										}
+									}
+								}
+							}
+
+							setTimeout(function () {
+								var win = f.contentWindow.document;
+								var url = new URL(
+										'https://localhost:5500?utm_source=test_source&utm_medium=test_medium&utm_campaign=test_campaign'
+									),
+									params = new URLSearchParams(url.search),
+									utmSource = params.get('utm_source'),
+									utmMedium = params.get('utm_medium'),
+									utmCampaign = params.get('utm_campaign');
+
+								// Fill the hidden fields with the required query params
+								win.querySelector('input[placeholder="source"').value = utmSource;
+								win.querySelector('input[placeholder="medium"').value = utmMedium;
+								win.querySelector('input[placeholder="campaign"').value = utmCampaign;
+							}, 5000);
+						},
+						false
+					);
+				} catch (e) {}
+			})();
+		</script>
+	</body>
+</html>

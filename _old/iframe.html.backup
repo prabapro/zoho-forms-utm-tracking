@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Iframe Page</title>
+	</head>
+	<body>
+		<form action="#" id="testForm">
+			<input type="text" name="Traffic Source" placeholder="source" /></br></br>
+			<input type="text" name="Traffic Medium" placeholder="medium" /></br></br>
+			<input type="text" name="Traffic Campaign" placeholder="campaign" /></br></br>
+			<input type="text" name="Traffic Content" placeholder="content" /></br></br>
+			<input type="text" name="Traffic Term" placeholder="term" /></br></br>
+			<input type="text" name="Facebook Click ID" placeholder="fbclid" /></br></br>
+			<input type="text" name="Google Ads Click ID" placeholder="gclid" /></br></br>
+			<input type="text" name="LinkedIn Click ID" placeholder="linkedIn" />
+		</form>
+	</body>
+</html>
