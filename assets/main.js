@@ -26,5 +26,5 @@ if (
 
 	document.querySelectorAll(
 		'#sample-links>ul>li'
-	)[3].innerHTML = `With LinkedIn Click ID:<br>🔗 <code><a href="${url}?li_fat_id=li789.${random}">${url}?fbclid=fb456.${random}</a></code>`;
+	)[3].innerHTML = `With LinkedIn Click ID:<br>🔗 <code><a href="${url}?li_fat_id=li789.${random}">$${url}?li_fat_id=li789.${random}</a></code>`;
 }
