@@ -1,6 +1,5 @@
 function ZFAdvLead() {}
 ZFAdvLead.utmPValObj = ZFAdvLead.utmPValObj || {};
-
 ZFAdvLead.utmPNameArr = new Array(
 	'utm_source',
 	'utm_medium',
@@ -10,7 +9,6 @@ ZFAdvLead.utmPNameArr = new Array(
 );
 ZFAdvLead.utmcustPNameArr = new Array('');
 ZFAdvLead.isSameDomian = false;
-
 ZFAdvLead.prototype.zfautm_sC = function (paramName, path, domain, secure) {
 	var value = ZFAdvLead.utmPValObj[paramName];
 	if (typeof value !== 'undefined' && value !== null) {
@@ -52,9 +50,7 @@ ZFAdvLead.prototype.zfautm_ini = function () {
 };
 ZFAdvLead.prototype.zfautm_bscPCap = function () {
 	var trafSrc = this.zfautm_calcTrafSrc();
-
 	// console.log(trafSrc);
-
 	if (trafSrc.source != '') {
 		ZFAdvLead.utmPValObj.utm_source = trafSrc.source;
 	}
@@ -90,7 +86,6 @@ ZFAdvLead.prototype.zfautm_calcTrafSrc = function () {
 	ref_domain = ref;
 	ref_path = '/';
 	ref_search = '';
-
 	// Checks for campaign parameters
 	var url_search = document.location.search;
 	if (
@@ -112,7 +107,7 @@ ZFAdvLead.prototype.zfautm_calcTrafSrc = function () {
 		u2 = 'cpc';
 		u3 = '-';
 		u4 = '-';
-		u5 = `ClickID: ${this.zfautm_gP(url_search, 'gclid')}`;
+		u5 = 'ClickID: ' + this.zfautm_gP(url_search, 'gclid');
 	}
 	// Facebook Ads
 	else if (this.zfautm_gP(url_search, 'fbclid')) {
@@ -120,7 +115,7 @@ ZFAdvLead.prototype.zfautm_calcTrafSrc = function () {
 		u2 = 'Social';
 		u3 = '-';
 		u4 = '-';
-		u5 = `ClickID: ${this.zfautm_gP(url_search, 'fbclid')}`;
+		u5 = 'ClickID: ' + this.zfautm_gP(url_search, 'fbclid');
 	}
 	// LinkedIn Ads
 	else if (this.zfautm_gP(url_search, 'li_fat_id')) {
@@ -128,7 +123,7 @@ ZFAdvLead.prototype.zfautm_calcTrafSrc = function () {
 		u2 = 'Social';
 		u3 = '-';
 		u4 = '-';
-		u5 = `ClickID: ${this.zfautm_gP(url_search, 'li_fat_id')}`;
+		u5 = 'ClickID: ' + this.zfautm_gP(url_search, 'li_fat_id');
 	}
 	// Map Params
 	else if (ref) {
